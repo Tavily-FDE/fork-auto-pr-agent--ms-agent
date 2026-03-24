@@ -1,4 +1,4 @@
-## Search Engine, Supported values: EXA, SERPAPI ##
+## Search Engine, Supported values: EXA, SERPAPI, TAVILY ##
 
 SEARCH_ENGINE:
  engine: exa
@@ -8,3 +8,7 @@ SEARCH_ENGINE:
 #  engine: serpapi
 #  serpapi_api_key: $SERPAPI_API_KEY
 #  provider: google
+
+# SEARCH_ENGINE:
+#  engine: tavily
+#  tavily_api_key: $TAVILY_API_KEY
