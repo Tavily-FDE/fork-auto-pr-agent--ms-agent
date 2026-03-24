@@ -203,6 +203,9 @@ def get_search_engine_class(engine_type: str) -> Type[SearchEngine]:
     elif engine_type in ('serpapi', 'serp', 'google', 'bing', 'baidu'):
         from ms_agent.tools.search.serpapi import SerpApiSearch
         return SerpApiSearch
+    elif engine_type == 'tavily':
+        from ms_agent.tools.search.tavily import TavilySearch
+        return TavilySearch
     elif engine_type == 'arxiv':
         from ms_agent.tools.search.arxiv import ArxivSearch
         return ArxivSearch
@@ -220,7 +223,7 @@ def get_search_engine(engine_type: str,
     Get search engine instance by type.
 
     Args:
-        engine_type: One of 'exa', 'serpapi', 'arxiv'
+        engine_type: One of 'exa', 'serpapi', 'arxiv', 'tavily'
         api_key: API key for the search engine (if required)
         **kwargs: Additional arguments passed to engine constructor
     """
@@ -238,6 +241,9 @@ def get_search_engine(engine_type: str,
             api_key=api_key or os.getenv('SERPAPI_API_KEY'),
             provider=kwargs.get('provider', default_provider),
         )
+    elif engine_type == 'tavily':
+        from ms_agent.tools.search.tavily import TavilySearch
+        return TavilySearch(api_key=api_key or os.getenv('TAVILY_API_KEY'))
     elif engine_type == 'arxiv':
         from ms_agent.tools.search.arxiv import ArxivSearch
         return ArxivSearch()
