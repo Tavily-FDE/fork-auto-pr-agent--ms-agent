@@ -29,12 +29,15 @@ class TavilySearchRequest(SearchRequest):
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert the request parameters to a dictionary."""
-        return {
+        d = {
             'query': self.query,
             'max_results': self.num_results,
             'search_depth': self.search_depth,
             'topic': self.topic,
         }
+        if self.search_depth == 'advanced':
+            d['include_raw_content'] = True
+        return d
 
 
 class TavilySearchResult(SearchResult):

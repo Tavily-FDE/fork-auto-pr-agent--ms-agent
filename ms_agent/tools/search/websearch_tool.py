@@ -190,7 +190,7 @@ def get_search_engine_class(engine_type: str) -> Type[SearchEngine]:
     Get search engine class by type.
 
     Args:
-        engine_type: One of 'exa', 'serpapi', 'arxiv'
+        engine_type: One of 'exa', 'serpapi', 'arxiv', 'tavily'
 
     Returns:
         SearchEngine class (not instance)
