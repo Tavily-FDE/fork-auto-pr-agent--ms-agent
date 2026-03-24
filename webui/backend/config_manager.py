@@ -57,6 +57,7 @@ class ConfigManager:
         'search_keys': {
             'exa_api_key': '',
             'serpapi_api_key': '',
+            'tavily_api_key': '',
         },
         'mcp_servers': {},
         'theme': 'dark',
@@ -251,5 +252,8 @@ class ConfigManager:
         serp_key = search_keys.get('serpapi_api_key')
         if serp_key:
             env_vars['SERPAPI_API_KEY'] = serp_key
+        tavily_key = search_keys.get('tavily_api_key')
+        if tavily_key:
+            env_vars['TAVILY_API_KEY'] = tavily_key
 
         return env_vars

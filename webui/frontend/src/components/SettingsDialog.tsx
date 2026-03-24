@@ -62,6 +62,7 @@ interface EdgeOnePagesConfig {
 interface SearchKeysConfig {
   exa_api_key: string;
   serpapi_api_key: string;
+  tavily_api_key: string;
 }
 
 interface DeepResearchAgentConfig {
@@ -128,6 +129,7 @@ const SettingsDialog: React.FC<SettingsDialogProps> = ({ open, onClose }) => {
   const [searchKeysConfig, setSearchKeysConfig] = useState<SearchKeysConfig>({
     exa_api_key: '',
     serpapi_api_key: '',
+    tavily_api_key: '',
   });
   const [deepResearchConfig, setDeepResearchConfig] = useState<DeepResearchConfig>({
     researcher: { model: '', api_key: '', base_url: '' },
@@ -555,7 +557,7 @@ const SettingsDialog: React.FC<SettingsDialogProps> = ({ open, onClose }) => {
         <TabPanel value={tabValue} index={1}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Alert severity="info">
-              Configure EXA and SerpApi keys for Deep Research search tools.
+              Configure EXA, SerpApi, and Tavily keys for Deep Research search tools.
             </Alert>
             <TextField
               fullWidth
@@ -570,6 +572,13 @@ const SettingsDialog: React.FC<SettingsDialogProps> = ({ open, onClose }) => {
               type="password"
               value={searchKeysConfig.serpapi_api_key}
               onChange={(e) => setSearchKeysConfig((prev) => ({ ...prev, serpapi_api_key: e.target.value }))}
+            />
+            <TextField
+              fullWidth
+              label="Tavily API Key"
+              type="password"
+              value={searchKeysConfig.tavily_api_key}
+              onChange={(e) => setSearchKeysConfig((prev) => ({ ...prev, tavily_api_key: e.target.value }))}
             />
           </Box>
         </TabPanel>

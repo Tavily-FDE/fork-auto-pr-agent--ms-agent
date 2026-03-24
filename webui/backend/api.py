@@ -84,6 +84,7 @@ class EdgeOnePagesConfig(BaseModel):
 class SearchKeysConfig(BaseModel):
     exa_api_key: Optional[str] = None
     serpapi_api_key: Optional[str] = None
+    tavily_api_key: Optional[str] = None
 
 
 class DeepResearchAgentConfig(BaseModel):
