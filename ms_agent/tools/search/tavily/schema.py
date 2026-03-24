@@ -1,5 +1,4 @@
 # flake8: noqa
-from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 from ms_agent.tools.search.search_base import (BaseResult, SearchRequest,

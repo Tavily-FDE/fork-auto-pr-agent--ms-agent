@@ -190,7 +190,7 @@ def get_search_engine_class(engine_type: str) -> Type[SearchEngine]:
     Get search engine class by type.
 
     Args:
-        engine_type: One of 'exa', 'serpapi', 'arxiv'
+        engine_type: One of 'exa', 'serpapi', 'arxiv', 'tavily'
 
     Returns:
         SearchEngine class (not instance)
@@ -223,7 +223,7 @@ def get_search_engine(engine_type: str,
     Get search engine instance by type.
 
     Args:
-        engine_type: One of 'exa', 'serpapi', 'arxiv'
+        engine_type: One of 'exa', 'serpapi', 'arxiv', 'tavily'
         api_key: API key for the search engine (if required)
         **kwargs: Additional arguments passed to engine constructor
     """
@@ -271,7 +271,7 @@ def build_search_request(engine_type: str,
 class WebSearchTool(ToolBase):
     """
     Unified web search tool for agents. It can search the web and fetch page content.
-    - Search via multiple engines (Exa, SerpAPI, Arxiv)
+    - Search via multiple engines (Exa, SerpAPI, Arxiv, Tavily)
     - Dynamic tool definitions based on configured engines
     - Auto-fetch and parse page content
     - Configurable content fetcher (jina_reader, docling, etc.)

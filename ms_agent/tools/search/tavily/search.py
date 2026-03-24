@@ -37,23 +37,15 @@ class TavilySearch(SearchEngine):
         :return: An instance of TavilySearchResult containing the search results.
         """
         search_args: dict = search_request.to_dict()
-        search_result: TavilySearchResult = TavilySearchResult(
-            query=search_request.query,
-            arguments=search_args,
-        )
         try:
             response = self.client.search(**search_args)
-            search_result.response = search_result._process_results()
-            # Re-process with actual response
-            search_result = TavilySearchResult(
+            return TavilySearchResult(
                 query=search_request.query,
                 arguments=search_args,
                 response=response,
             )
         except Exception as e:
             raise RuntimeError(f'Failed to perform search: {e}') from e
-
-        return search_result
 
     @classmethod
     def get_tool_definition(cls, server_name: str = 'web_search') -> 'Tool':
